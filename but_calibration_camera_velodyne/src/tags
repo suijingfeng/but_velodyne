@@ -1,0 +1,89 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+CAMERA_INFO_TOPIC	calibration-node.cpp	/^string CAMERA_INFO_TOPIC;$/;"	v
+CAMERA_INFO_TOPIC	coloring-node.cpp	/^string CAMERA_INFO_TOPIC;$/;"	v
+Calibration3DMarker	Calibration3DMarker.cpp	/^Calibration3DMarker::Calibration3DMarker(cv::Mat _frame_gray, cv::Mat _P, $/;"	f	class:Calibration3DMarker
+DEBUG	Image.cpp	12;"	d	file:
+DoF	coloring-node.cpp	/^std::vector<float> DoF;$/;"	v
+EDGE_THRESHOLD	calibration-node.cpp	/^float EDGE_THRESHOLD;$/;"	v
+Image	Image.cpp	/^Image::Image(cv::Mat _img) :$/;"	f	class:Image::Image
+Image	Image.cpp	/^namespace Image$/;"	n	file:
+LoadPointXYZData	coloring-node.cpp	/^int LoadPointXYZData(std::string name)$/;"	f
+LoadRecordedData	calibration-node.cpp	/^int LoadRecordedData()$/;"	f
+LoadRecordedData	coloring-node.cpp	/^int LoadRecordedData(std::string name)$/;"	f
+RADIUS	calibration-node.cpp	/^float RADIUS; \/\/ 8.25cm$/;"	v
+SAVE_TEMPORARY_DATA	Calibration3DMarker.cpp	12;"	d	file:
+STRAIGHT_DISTANCE	calibration-node.cpp	/^float STRAIGHT_DISTANCE; \/\/ 23cm$/;"	v
+T_C_L_MAX	calibration-node.cpp	36;"	d	file:
+USE_ONLY_XYZ	coloring-node.cpp	37;"	d	file:
+USE_RECORDED_FILES	calibration-node.cpp	34;"	d	file:
+USE_RECORDED_FILES	coloring-node.cpp	36;"	d	file:
+VELODYNE_COLOR_TOPIC	coloring-node.cpp	/^string VELODYNE_COLOR_TOPIC;$/;"	v
+VELODYNE_TOPIC	calibration-node.cpp	/^string VELODYNE_TOPIC;$/;"	v
+VELODYNE_TOPIC	coloring-node.cpp	/^string VELODYNE_TOPIC;$/;"	v
+Velodyne	Velodyne.cpp	/^Velodyne::Velodyne::Velodyne(PointCloud<Point> _point_cloud) :$/;"	f	class:Velodyne::Velodyne
+alpha	Image.cpp	/^float const Image::alpha = 0.33;$/;"	m	class:Image::Image	file:
+calibration	calibration-node.cpp	/^Calibration6DoF calibration(bool doRefinement = false)$/;"	f
+calibrationRefinement	calibration-node.cpp	/^void calibrationRefinement($/;"	f
+callback	calibration-node.cpp	/^void callback(const sensor_msgs::ImageConstPtr& msg_img,$/;"	f
+cameraInfoCallback	coloring-node.cpp	/^void cameraInfoCallback(const sensor_msgs::CameraInfoConstPtr& msg)$/;"	f
+coarseCalibration	calibration-node.cpp	/^Calibration6DoF coarseCalibration( cv::Mat projection,$/;"	f
+colour	Velodyne.cpp	/^PointCloud<PointXYZRGB> Velodyne::Velodyne::colour(cv::Mat frame_rgb, cv::Mat P)$/;"	f	class:Velodyne::Velodyne
+colouring	coloring-node.cpp	/^PointCloud<PointXYZRGB> colouring(pcl::PointCloud<PointXYZ> &pc, $/;"	f
+computeEdgeImage	Image.cpp	/^Mat Image::computeEdgeImage()$/;"	f	class:Image::Image
+computeEntropies	Similarity.cpp	/^void Similarity::computeEntropies()$/;"	f	class:Similarity
+computeIDTEdgeImage	Image.cpp	/^Mat Image::computeIDTEdgeImage()$/;"	f	class:Image::Image
+computeIDTEdgeImage	Image.cpp	/^Mat Image::computeIDTEdgeImage(Mat &edge_img)$/;"	f	class:Image::Image
+depthSegmentation	Velodyne.cpp	/^vector<Velodyne::Velodyne> Velodyne::Velodyne::depthSegmentation(int segment_counts)$/;"	f	class:Velodyne::Velodyne
+detect4CircleInPointcloud	Calibration3DMarker.cpp	/^std::vector<PointXYZ> Calibration3DMarker::detect4CircleInPointcloud($/;"	f	class:Calibration3DMarker
+detect4Circles	Image.cpp	/^bool Image::detect4Circles(float canny_thresh, float center_thresh, $/;"	f	class:Image::Image
+detectCirclesInImage	Calibration3DMarker.cpp	/^bool Calibration3DMarker::detectCirclesInImage(vector<Point2f> &centers, $/;"	f	class:Calibration3DMarker
+detectCirclesInPointCloud	Calibration3DMarker.cpp	/^bool Calibration3DMarker::detectCirclesInPointCloud( vector<Point3f> &centers,$/;"	f	class:Calibration3DMarker
+detectLine	Calibration3DMarker.cpp	/^void Calibration3DMarker::detectLine( pcl::PointCloud<pcl::PointXYZ>& in_pc,$/;"	f	class:Calibration3DMarker
+detectLine	Calibration3DMarker.cpp	/^void Calibration3DMarker::detectLine( pcl::PointCloud<pcl::PointXYZI>& in_pc,$/;"	f	class:Calibration3DMarker
+detectPlane	Calibration3DMarker.cpp	/^bool Calibration3DMarker::detectPlane( pcl::PointCloud<PointXYZ>::Ptr pc_ptr,$/;"	f	class:Calibration3DMarker
+detectPlane	Calibration3DMarker.cpp	/^bool Calibration3DMarker::detectPlane( pcl::PointCloud<Velodyne::Point>& in_pc,$/;"	f	class:Calibration3DMarker
+detectPlanes	Velodyne.cpp	/^void Velodyne::Velodyne::detectPlanes(cv::Mat projection)$/;"	f	class:Velodyne::Velodyne
+distance_weights	Image.cpp	/^cv::Mat Image::distance_weights;$/;"	m	class:Image::Image	file:
+doRefinement	calibration-node.cpp	/^bool doRefinement = false;$/;"	v
+euclid_dist	Calibration3DMarker.cpp	/^float euclid_dist(const PointXYZ p1, const PointXYZ p2)$/;"	f
+frame_rgb	calibration-node.cpp	/^cv::Mat frame_rgb;$/;"	v
+frame_rgb	coloring-node.cpp	/^cv::Mat frame_rgb;$/;"	v
+gamma	Image.cpp	/^float const Image::gamma = 0.98;$/;"	m	class:Image::Image	file:
+getRings	Calibration3DMarker.cpp	/^void Calibration3DMarker::getRings( pcl::PointCloud<Velodyne::Point>& inPC )$/;"	f	class:Calibration3DMarker
+getRings	Velodyne.cpp	/^std::vector<std::vector<Velodyne::Point*> > Velodyne::Velodyne::getRings()$/;"	f	class:Velodyne::Velodyne
+imageCallback	coloring-node.cpp	/^void imageCallback(const sensor_msgs::ImageConstPtr& msg)$/;"	f
+intensityByDiff	Velodyne.cpp	/^void Velodyne::Velodyne::intensityByDiff()$/;"	f	class:Velodyne::Velodyne
+main	calibration-node.cpp	/^int main(int argc, char** argv)$/;"	f
+main	coloring-node.cpp	/^int main(int argc, char** argv)$/;"	f
+normalizeIntensity	Velodyne.cpp	/^void Velodyne::Velodyne::normalizeIntensity(float min, float max)$/;"	f	class:Velodyne::Velodyne
+order4spheres	Calibration3DMarker.cpp	/^void Calibration3DMarker::order4spheres(vector<PointXYZ> &circles_centers)$/;"	f	class:Calibration3DMarker
+orderX	Calibration3DMarker.cpp	/^bool orderX(PointXYZ p1, PointXYZ p2)$/;"	f
+orderY	Calibration3DMarker.cpp	/^bool orderY(PointXYZ p1, PointXYZ p2)$/;"	f
+order_X	Image.cpp	/^bool order_X(const Vec3f &p1, const Vec3f &p2)$/;"	f	namespace:Image
+order_Y	Image.cpp	/^bool order_Y(const Vec3f &p1, const Vec3f &p2)$/;"	f	namespace:Image
+origin_pc	coloring-node.cpp	/^pcl::PointCloud<Velodyne::Point> origin_pc;$/;"	v
+perspectiveProject	Calibration3DMarker.cpp	/^void Calibration3DMarker::perspectiveProject( pcl::PointCloud<Velodyne::Point> &in_pc,$/;"	f	class:Calibration3DMarker
+perspectiveProject	Calibration3DMarker.cpp	/^void Calibration3DMarker::perspectiveProject( pcl::PointCloud<pcl::PointXYZ> &in_pc,$/;"	f	class:Calibration3DMarker
+pointCloudCallback	coloring-node.cpp	/^void pointCloudCallback(const sensor_msgs::PointCloud2ConstPtr& msg)$/;"	f
+pointcloud	calibration-node.cpp	/^Velodyne::Velodyne pointcloud;$/;"	v
+pointxyz_pc	coloring-node.cpp	/^pcl::PointCloud<pcl::PointXYZ> pointxyz_pc;$/;"	v
+project	Velodyne.cpp	/^void Velodyne::Velodyne::project( Mat projection_matrix,$/;"	f	class:Velodyne::Velodyne
+project	coloring-node.cpp	/^void project( pcl::PointCloud<PointT> &pc, $/;"	f
+projectfo	coloring-node.cpp	/^static cv::Point2f projectfo(const PointXYZ &pt, const cv::Mat &projection_matrix)$/;"	f	file:
+projection_matrix	calibration-node.cpp	/^cv::Mat projection_matrix;$/;"	v
+projection_matrix	coloring-node.cpp	/^cv::Mat projection_matrix;$/;"	v
+pub	coloring-node.cpp	/^ros::Publisher pub;$/;"	v
+removeNearbyPoints	Calibration3DMarker.cpp	/^void Calibration3DMarker::removeNearbyPoints( pcl::PointCloud<PointXYZ> &cloud_in,$/;"	f	class:Calibration3DMarker
+segmentation	Image.cpp	/^Mat Image::segmentation(int segment_count)$/;"	f	class:Image::Image
+threshold	Velodyne.cpp	/^void Velodyne::Velodyne::threshold(float thresh, pcl::PointCloud<Point>& out_pc )$/;"	f	class:Velodyne::Velodyne
+toPointsXYZ	Velodyne.cpp	/^pcl::PointCloud<pcl::PointXYZ> *Velodyne::Velodyne::toPointsXYZ()$/;"	f	class:Velodyne::Velodyne
+transform	Velodyne.cpp	/^void Velodyne::Velodyne::transform( float x, float y, float z, $/;"	f	class:Velodyne::Velodyne
+transform	Velodyne.cpp	/^void Velodyne::Velodyne::transform(vector<float> DoF)$/;"	f	class:Velodyne::Velodyne
+verify4spheres	Calibration3DMarker.cpp	/^bool Calibration3DMarker::verify4spheres( vector<PointXYZ> &circles_centers, $/;"	f	class:Calibration3DMarker
+visible_points	coloring-node.cpp	/^pcl::PointCloud<Velodyne::Point> visible_points;$/;"	v
+visible_points	coloring-node.cpp	/^pcl::PointCloud<pcl::PointXYZ> visible_points;$/;"	v

@@ -1,0 +1,119 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+CALIBRATION3DMARKER_H_	Calibration3DMarker.h	9;"	d
+CANNY_THRESH	Calibration3DMarker.h	/^  static const int CANNY_THRESH = 150;$/;"	m	class:but_calibration_camera_velodyne::Calibration3DMarker
+CC	Similarity.h	/^    MI, NMI, CC$/;"	e	enum:but_calibration_camera_velodyne::Similarity::Criteria
+CENTER_THRESH_DISTANCE	Calibration3DMarker.h	/^  static const int CENTER_THRESH_DISTANCE = 80;$/;"	m	class:but_calibration_camera_velodyne::Calibration3DMarker
+Calibration	Calibration.h	/^class Calibration$/;"	c	namespace:but_calibration_camera_velodyne
+Calibration3DMarker	Calibration3DMarker.h	/^class Calibration3DMarker$/;"	c	namespace:but_calibration_camera_velodyne
+Calibration6DoF	Calibration.h	/^  Calibration6DoF()$/;"	f	class:but_calibration_camera_velodyne::Calibration6DoF
+Calibration6DoF	Calibration.h	/^  Calibration6DoF(float x, float y, float z, float x_r, float y_r, float z_r, float val)$/;"	f	class:but_calibration_camera_velodyne::Calibration6DoF
+Calibration6DoF	Calibration.h	/^class Calibration6DoF$/;"	c	namespace:but_calibration_camera_velodyne
+CalibrationInputs	Calibration.h	/^} CalibrationInputs;$/;"	t	namespace:but_calibration_camera_velodyne	typeref:struct:but_calibration_camera_velodyne::__anon2
+Criteria	Similarity.h	/^  enum Criteria$/;"	g	class:but_calibration_camera_velodyne::Similarity
+DISTORTIONS	Velodyne.h	/^  DISTORTIONS, INTENSITY_EDGES, NONE$/;"	e	enum:but_calibration_camera_velodyne::Velodyne::__anon1
+DoF	Calibration.h	/^  std::vector<float> DoF;$/;"	m	class:but_calibration_camera_velodyne::Calibration6DoF
+EIGEN_ALIGN16	Velodyne.h	/^}EIGEN_ALIGN16;$/;"	m	namespace:but_calibration_camera_velodyne::Velodyne	typeref:struct:but_calibration_camera_velodyne::Velodyne::Point
+EXCEPTIONS_H_	Exceptions.h	9;"	d
+H_X	Similarity.h	/^  float H_X, H_Y; \/\/ entropy of image X, Y$/;"	m	class:but_calibration_camera_velodyne::Similarity
+H_XY	Similarity.h	/^  float H_XY; \/\/ joint entropy$/;"	m	class:but_calibration_camera_velodyne::Similarity
+H_Y	Similarity.h	/^  float H_X, H_Y; \/\/ entropy of image X, Y$/;"	m	class:but_calibration_camera_velodyne::Similarity
+IDT_EDGES	Image.h	/^  IDT_EDGES, NONE$/;"	e	enum:but_calibration_camera_velodyne::Image::__anon3
+IMAGE_H_	Image.h	9;"	d
+INTENSITIES	Similarity.h	/^  static const int INTENSITIES = 256;$/;"	m	class:but_calibration_camera_velodyne::Similarity
+INTENSITY_EDGES	Velodyne.h	/^  DISTORTIONS, INTENSITY_EDGES, NONE$/;"	e	enum:but_calibration_camera_velodyne::Velodyne::__anon1
+Image	Image.h	/^class Image$/;"	c	namespace:but_calibration_camera_velodyne::Image
+Image	Image.h	/^namespace Image$/;"	n	namespace:but_calibration_camera_velodyne
+MI	Similarity.h	/^    MI, NMI, CC$/;"	e	enum:but_calibration_camera_velodyne::Similarity::Criteria
+NMI	Similarity.h	/^    MI, NMI, CC$/;"	e	enum:but_calibration_camera_velodyne::Similarity::Criteria
+NONE	Image.h	/^  IDT_EDGES, NONE$/;"	e	enum:but_calibration_camera_velodyne::Image::__anon3
+NONE	Velodyne.h	/^  DISTORTIONS, INTENSITY_EDGES, NONE$/;"	e	enum:but_calibration_camera_velodyne::Velodyne::__anon1
+NotImplementedException	Exceptions.h	/^  NotImplementedException(std::string what) :$/;"	f	class:but_calibration_camera_velodyne::NotImplementedException
+NotImplementedException	Exceptions.h	/^class NotImplementedException : public std::runtime_error$/;"	c	namespace:but_calibration_camera_velodyne
+P	Calibration.h	/^  cv::Mat P;$/;"	m	struct:but_calibration_camera_velodyne::__anon2
+P	Calibration3DMarker.h	/^  cv::Mat frame_gray, P;$/;"	m	class:but_calibration_camera_velodyne::Calibration3DMarker
+PCL_ADD_POINT4D	Velodyne.h	/^  PCL_ADD_POINT4D$/;"	m	struct:but_calibration_camera_velodyne::Velodyne::Point
+Point	Velodyne.h	/^struct Point$/;"	s	namespace:but_calibration_camera_velodyne::Velodyne
+Processing	Image.h	/^} Processing;$/;"	t	namespace:but_calibration_camera_velodyne::Image	typeref:enum:but_calibration_camera_velodyne::Image::__anon3
+Processing	Velodyne.h	/^} Processing;$/;"	t	namespace:but_calibration_camera_velodyne::Velodyne	typeref:enum:but_calibration_camera_velodyne::Velodyne::__anon1
+RINGS_COUNT	Velodyne.h	/^  static const unsigned RINGS_COUNT = 32;$/;"	m	class:but_calibration_camera_velodyne::Velodyne::Velodyne
+SIMILARITY_H_	Similarity.h	9;"	d
+Similarity	Similarity.h	/^  Similarity(cv::Mat _X, cv::Mat _Y) :$/;"	f	class:but_calibration_camera_velodyne::Similarity
+Similarity	Similarity.h	/^class Similarity$/;"	c	namespace:but_calibration_camera_velodyne
+VELODYNE_H_	Velodyne.h	9;"	d
+Velodyne	Velodyne.h	/^  Velodyne()$/;"	f	class:but_calibration_camera_velodyne::Velodyne::Velodyne
+Velodyne	Velodyne.h	/^class Velodyne$/;"	c	namespace:but_calibration_camera_velodyne::Velodyne
+Velodyne	Velodyne.h	/^namespace Velodyne$/;"	n	namespace:but_calibration_camera_velodyne
+X	Similarity.h	/^  cv::Mat X, Y; \/\/ compared images$/;"	m	class:but_calibration_camera_velodyne::Similarity
+Y	Similarity.h	/^  cv::Mat X, Y; \/\/ compared images$/;"	m	class:but_calibration_camera_velodyne::Similarity
+__BUT_CALIBRATION_H__	Calibration.h	2;"	d
+alpha	Image.h	/^  static float const alpha;$/;"	m	class:but_calibration_camera_velodyne::Image::Image
+at	Image.h	/^  uchar at(cv::Point xy)$/;"	f	class:but_calibration_camera_velodyne::Image::Image
+atf	Image.h	/^  static cv::Vec3b atf(cv::Mat rgb, cv::Point2f xy_f)$/;"	f	class:but_calibration_camera_velodyne::Image::Image
+begin	Velodyne.h	/^  ::pcl::PointCloud<Point>::iterator begin()$/;"	f	class:but_calibration_camera_velodyne::Velodyne::Velodyne
+but_calibration_camera_velodyne	Calibration.h	/^namespace but_calibration_camera_velodyne$/;"	n
+but_calibration_camera_velodyne	Calibration3DMarker.h	/^namespace but_calibration_camera_velodyne$/;"	n
+but_calibration_camera_velodyne	Exceptions.h	/^namespace but_calibration_camera_velodyne$/;"	n
+but_calibration_camera_velodyne	Image.h	/^namespace but_calibration_camera_velodyne$/;"	n
+but_calibration_camera_velodyne	Similarity.h	/^namespace but_calibration_camera_velodyne {$/;"	n
+but_calibration_camera_velodyne	Velodyne.h	/^namespace but_calibration_camera_velodyne {$/;"	n
+calibrationRefinement	Calibration.h	/^  static void calibrationRefinement($/;"	f	class:but_calibration_camera_velodyne::Calibration
+circ_distance	Calibration3DMarker.h	/^  float circ_distance, radius;$/;"	m	class:but_calibration_camera_velodyne::Calibration3DMarker
+distance_weights	Image.h	/^  static cv::Mat distance_weights;$/;"	m	class:but_calibration_camera_velodyne::Image::Image
+edgeSimilarity	Similarity.h	/^  float static edgeSimilarity(Image::Image &img, Velodyne::Velodyne &scan, cv::Mat &P)$/;"	f	class:but_calibration_camera_velodyne::Similarity
+empty	Velodyne.h	/^  bool empty()$/;"	f	class:but_calibration_camera_velodyne::Velodyne::Velodyne
+end	Velodyne.h	/^  ::pcl::PointCloud<Point>::iterator end()$/;"	f	class:but_calibration_camera_velodyne::Velodyne::Velodyne
+error	Calibration.h	/^  std::string error;$/;"	m	struct:but_calibration_camera_velodyne::__anon2
+findTranslation	Calibration.h	/^  static Calibration6DoF findTranslation(  std::vector<cv::Point2f> image, $/;"	f	class:but_calibration_camera_velodyne::Calibration
+frame_gray	Calibration.h	/^  cv::Mat frame_gray;$/;"	m	struct:but_calibration_camera_velodyne::__anon2
+frame_gray	Calibration3DMarker.h	/^  cv::Mat frame_gray, P;$/;"	m	class:but_calibration_camera_velodyne::Calibration3DMarker
+frame_rgb	Calibration.h	/^  cv::Mat frame_rgb;$/;"	m	struct:but_calibration_camera_velodyne::__anon2
+gamma	Image.h	/^  static float const gamma;$/;"	m	class:but_calibration_camera_velodyne::Image::Image
+getCriteria	Similarity.h	/^  static Criteria getCriteria(std::string s)$/;"	f	class:but_calibration_camera_velodyne::Similarity
+getCrossCorelation	Similarity.h	/^  float getCrossCorelation()$/;"	f	class:but_calibration_camera_velodyne::Similarity
+getMutualInformation	Similarity.h	/^  float getMutualInformation()$/;"	f	class:but_calibration_camera_velodyne::Similarity
+getNormalizedMutualInformation	Similarity.h	/^  float getNormalizedMutualInformation()$/;"	f	class:but_calibration_camera_velodyne::Similarity
+getPointCloud	Velodyne.h	/^  ::pcl::PointCloud<Point> getPointCloud()$/;"	f	class:but_calibration_camera_velodyne::Velodyne::Velodyne
+getSimilarity	Similarity.h	/^  float getSimilarity(Criteria crit)$/;"	f	class:but_calibration_camera_velodyne::Similarity
+img	Image.h	/^  cv::Mat img;$/;"	m	class:but_calibration_camera_velodyne::Image::Image
+intensity	Velodyne.h	/^  float intensity; \/\/\/< laser intensity reading$/;"	m	struct:but_calibration_camera_velodyne::Velodyne::Point
+isEmpty	Velodyne.h	/^  bool isEmpty()$/;"	f	class:but_calibration_camera_velodyne::Velodyne::Velodyne
+isGood	Calibration.h	/^  bool isGood()$/;"	f	class:but_calibration_camera_velodyne::Calibration6DoF
+loadArgumets	Calibration.h	/^  static CalibrationInputs loadArgumets(int argc, char *argv[], bool DoF = false)$/;"	f	class:but_calibration_camera_velodyne::Calibration
+operator +=	Calibration.h	/^  void operator +=(Calibration6DoF &other)$/;"	f	class:but_calibration_camera_velodyne::Calibration6DoF
+operator /=	Calibration.h	/^  void operator \/=(float div)$/;"	f	class:but_calibration_camera_velodyne::Calibration6DoF
+operator <=	Calibration.h	/^  bool operator <=(Calibration6DoF &other)$/;"	f	class:but_calibration_camera_velodyne::Calibration6DoF
+pc	Calibration.h	/^  ::pcl::PointCloud<Velodyne::Point> pc;$/;"	m	struct:but_calibration_camera_velodyne::__anon2
+pc	Calibration3DMarker.h	/^  ::pcl::PointCloud<Velodyne::Point> pc;$/;"	m	class:but_calibration_camera_velodyne::Calibration3DMarker
+plane	Calibration3DMarker.h	/^  ::pcl::PointCloud< ::pcl::PointXYZ > plane;$/;"	m	class:but_calibration_camera_velodyne::Calibration3DMarker
+point_cloud	Velodyne.h	/^  ::pcl::PointCloud<Point> point_cloud;$/;"	m	class:but_calibration_camera_velodyne::Velodyne::Velodyne
+print	Calibration.h	/^  void print(void)$/;"	f	class:but_calibration_camera_velodyne::Calibration6DoF
+project	Velodyne.h	/^  static cv::Point project(const Point &pt, const cv::Mat &projection_matrix)$/;"	f	class:but_calibration_camera_velodyne::Velodyne::Velodyne
+projectf	Velodyne.h	/^  static cv::Point2f projectf(const Point &pt, const cv::Mat &projection_matrix)$/;"	f	class:but_calibration_camera_velodyne::Velodyne::Velodyne
+projectionError	Similarity.h	/^  float static projectionError(Image::Image img, Velodyne::Velodyne scan, cv::Mat P, bool verbose = false)$/;"	f	class:but_calibration_camera_velodyne::Similarity
+projectionError	Similarity.h	/^  float static projectionError(cv::Mat &segmentation, std::vector<Velodyne::Velodyne> &segments, cv::Mat P,$/;"	f	class:but_calibration_camera_velodyne::Similarity
+push_back	Velodyne.h	/^  void push_back(Point pt)$/;"	f	class:but_calibration_camera_velodyne::Velodyne::Velodyne
+radius	Calibration3DMarker.h	/^  float circ_distance, radius;$/;"	m	class:but_calibration_camera_velodyne::Calibration3DMarker
+range	Velodyne.h	/^  float range;EIGEN_MAKE_ALIGNED_OPERATOR_NEW \/\/ ensure proper alignment$/;"	m	struct:but_calibration_camera_velodyne::Velodyne::Point
+remove_inliers	Calibration3DMarker.h	/^    void remove_inliers(const ::pcl::PointCloud<PointT> &cloud_in, std::vector<int> inliers_indices,$/;"	f	class:but_calibration_camera_velodyne::Calibration3DMarker
+ring	Velodyne.h	/^  uint16_t ring; \/\/\/< laser ring number$/;"	m	struct:but_calibration_camera_velodyne::Velodyne::Point
+rot_x	Calibration.h	/^  float x, y, z, rot_x, rot_y, rot_z;$/;"	m	struct:but_calibration_camera_velodyne::__anon2
+rot_y	Calibration.h	/^  float x, y, z, rot_x, rot_y, rot_z;$/;"	m	struct:but_calibration_camera_velodyne::__anon2
+rot_z	Calibration.h	/^  float x, y, z, rot_x, rot_y, rot_z;$/;"	m	struct:but_calibration_camera_velodyne::__anon2
+save	Velodyne.h	/^  void save(std::string filename)$/;"	f	class:but_calibration_camera_velodyne::Velodyne::Velodyne
+set	Calibration.h	/^  void set(float x, float y, float z, float x_r, float y_r, float z_r, float val)$/;"	f	class:but_calibration_camera_velodyne::Calibration6DoF
+show	Image.h	/^  void show(const char *name = "Image", int wait = 0)$/;"	f	class:but_calibration_camera_velodyne::Image::Image
+size	Image.h	/^  cv::Size size()$/;"	f	class:but_calibration_camera_velodyne::Image::Image
+size	Velodyne.h	/^  size_t size()$/;"	f	class:but_calibration_camera_velodyne::Velodyne::Velodyne
+threshold	Image.h	/^  void threshold(int threshold)$/;"	f	class:but_calibration_camera_velodyne::Image::Image
+value	Calibration.h	/^  float value; \/\/ NaN = wrong calibration$/;"	m	class:but_calibration_camera_velodyne::Calibration6DoF
+view	Velodyne.h	/^  static void view( ::pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_ptr)$/;"	f	class:but_calibration_camera_velodyne::Velodyne::Velodyne
+view	Velodyne.h	/^  static void view(::pcl::PointCloud< ::pcl::PointXYZ >::Ptr cloud_ptr)$/;"	f	class:but_calibration_camera_velodyne::Velodyne::Velodyne
+wrong	Calibration.h	/^  static Calibration6DoF wrong()$/;"	f	class:but_calibration_camera_velodyne::Calibration6DoF
+x	Calibration.h	/^  float x, y, z, rot_x, rot_y, rot_z;$/;"	m	struct:but_calibration_camera_velodyne::__anon2
+y	Calibration.h	/^  float x, y, z, rot_x, rot_y, rot_z;$/;"	m	struct:but_calibration_camera_velodyne::__anon2
+z	Calibration.h	/^  float x, y, z, rot_x, rot_y, rot_z;$/;"	m	struct:but_calibration_camera_velodyne::__anon2

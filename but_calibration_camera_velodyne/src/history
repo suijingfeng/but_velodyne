@@ -1,0 +1,547 @@
+//	PointCloud<PointXYZ>::Ptr xyz_cloud_ptr( thresholded_scan.toPointsXYZ() );
+
+/*	
+	SampleConsensusModelPlane<PointXYZ>::Ptr model_p(
+      new ::SampleConsensusModelPlane<PointXYZ>(xyz_cloud_ptr) );
+
+	RandomSampleConsensus<PointXYZ> ransac_middle(model_p);
+	ransac_middle.setDistanceThreshold(0.04);
+	ransac_middle.computeModel();
+
+	std::vector<int> middle_inliers_indicies;
+	ransac_middle.getInliers(middle_inliers_indicies);
+	ransac_middle.getModelCoefficients(middle_plane_coefficients);
+
+
+	copyPointCloud<PointXYZ>(*xyz_cloud_ptr, middle_inliers_indicies, plane);
+
+	pcl::io::savePCDFile("pointsProjectedtoPlane.pcd", plane);
+*/
+
+/*	
+	Eigen::VectorXf again_plane_coefficients;
+	detectPlane( xyz_cloud_ptr,
+		         again_plane_coefficients,
+				 pointsProjetedtoPlane);
+
+
+*/	
+
+
+#ifdef DENUG	
+	else
+	{
+		// --see what errors happn --
+		std::cout << "detect4spheres return " << spheres_centers.size()
+		          << " circles!" << std::endl;
+		for (size_t i = 0; i < spheres_centers.size(); i++)
+		{
+			cerr << spheres_centers[i] << endl;
+		}
+	}
+#endif
+
+/*
+  
+	//////////////////////// RANSAC FRONT PLANE //////////////////////////
+ 	std::vector<int> front_plane_inliers;
+	PointCloud<PointXYZ>::Ptr front_cloud_ptr(scan.toPointsXYZ());
+
+	pcl::SampleConsensusModelPlane<pcl::PointXYZ>::Ptr model_front_plane(
+		new pcl::SampleConsensusModelPlane<pcl::PointXYZ>( front_cloud_ptr ) );
+
+    pcl::RandomSampleConsensus<pcl::PointXYZ> ransac_plane( model_front_plane );
+    ransac_plane.setDistanceThreshold(.04);
+    ransac_plane.computeModel();
+    ransac_plane.getInliers(front_plane_inliers);
+	ransac_plane.getModelCoefficients(front_plane_coefficients);
+
+	pcl::copyPointCloud<pcl::PointXYZ>( *front_cloud_ptr, 
+			                            front_plane_inliers,
+									    front_plane) ;
+
+	pcl::io::savePCDFile("front_plane.pcd", front_plane );
+
+
+
+
+#ifdef NEED_BACK_PLANE
+
+	//////////////////////// RANSAC BACK PLANE //////////////////////////
+
+	// FIRST REMOVE THE FRONT PLANE 
+	
+	pcl::PointCloud<pcl::PointXYZ>::Ptr pc_no_front_plane( 
+			new pcl::PointCloud<pcl::PointXYZ> () );
+
+	remove_inliers(*front_cloud_ptr, front_plane_inliers, *pc_no_front_plane);
+	pcl::io::savePCDFile("pc_np_front_plane.pcd", *pc_no_front_plane );
+
+	
+ 	std::vector<int> back_plane_inliers;
+
+	pcl::SampleConsensusModelPlane<pcl::PointXYZ>::Ptr model_back_plane(
+		new pcl::SampleConsensusModelPlane<pcl::PointXYZ>( pc_no_front_plane ) );
+
+    pcl::RandomSampleConsensus<pcl::PointXYZ> ransac_back_plane( model_back_plane );
+
+	ransac_back_plane.setDistanceThreshold(.035);
+    ransac_back_plane.computeModel();
+    ransac_back_plane.getInliers(back_plane_inliers);
+	ransac_back_plane.getModelCoefficients(back_plane_coefficients);
+
+	pcl::copyPointCloud<pcl::PointXYZ>( *pc_no_front_plane, 
+			                            back_plane_inliers,
+									    back_plane);
+
+	pcl::io::savePCDFile("back_plane.pcd", back_plane );
+
+	std::cout << "back plane inlier size: " << back_plane_inliers.size() 
+		      << std::endl << "back plane coefficients " << std::endl
+		      << back_plane_coefficients << std::endl << std::endl;
+
+	//////////////////////// WHAT IS LEFT  ///////////////////////////
+	pcl::PointCloud<pcl::PointXYZ>::Ptr pc_no_plane( 
+			new pcl::PointCloud<pcl::PointXYZ> () );
+
+	remove_inliers(*pc_no_front_plane, back_plane_inliers, *pc_no_plane);
+	pcl::io::savePCDFile("pc_no_plane.pcd", *pc_no_plane );
+#endif
+*/
+
+
+/*
+  cv::Rect frame(0, 0, frame_rgb.cols, frame_rgb.rows);
+
+  for (pcl::PointCloud<Velodyne::Point>::iterator pt = new_cloud.points.begin();
+                                   pt < new_cloud.points.end(); pt++)
+  {
+    // behind the camera
+    if (pt->z < 0)
+    {
+      continue; 
+    }
+
+    float intensity = pt->intensity;
+
+    cv::Mat pt_3D(4, 1, CV_32FC1);
+ 
+ 	pt_3D.at<float>(0) = pt->x;
+    pt_3D.at<float>(1) = pt->y;
+    pt_3D.at<float>(2) = pt->z;
+    pt_3D.at<float>(3) = 1.0f;//is homogenious coords. the point's 4. coord is 1
+
+    cv::Mat pt_2D = projection_matrix * pt_3D;
+
+    float w = pt_2D.at<float>(2);
+    float x = pt_2D.at<float>(0) / w;
+    float y = pt_2D.at<float>(1) / w;
+
+    cv::Point xy(x, y);
+
+	if (xy.inside(frame))
+    {
+        visible_points.push_back(*pt);
+//		cv::circle(frame_rgb, xy, 1, intensity);
+		frame_rgb.at<float>(y, x) = intensity;
+    }
+
+  }
+  cv::imwrite("mixChannels.png", frame_rgb);
+*/
+
+
+  /**
+   *Computes coarse calibration (only translation) from 2D - 3D correspondences.
+   */
+  static Calibration6DoF findTranslation( std::vector<cv::Point2f> image, 
+		                                  std::vector<cv::Point3f> velodyne,
+                                          cv::Mat projection,
+										  float radius2D,
+										  float radius3D)
+  {
+    std::vector<float> translation(3, 0);
+    float focal_len = projection.at<float>(0, 0);
+
+    // t_z:
+    translation[2] = radius3D*focal_len / radius2D - velodyne.front().z;
+
+    float principal_x = projection.at<float>(0, 2);
+    float principal_y = projection.at<float>(1, 2);
+
+    for (size_t i = 0; i < image.size(); i++)
+    {
+
+      // t_x:
+      translation[0] += (image[i].x - principal_x) * 
+		  (velodyne[i].z + translation[2]) /focal_len - velodyne[i].x;
+
+      // t_y:
+      translation[1] += (image[i].y - principal_y) * 
+           (velodyne[i].z + translation[2]) / focal_len - velodyne[i].y;
+    }
+    translation[0] /= image.size();
+    translation[1] /= image.size();
+
+	std::cout << "image.size(): " << image.size() << std::endl;
+
+	if( (std::abs(translation[0]) > 1) || (std::abs(translation[1]) > 1) )
+	{	
+		std::cout << "Coarse Calibration Error!" << std::endl; 
+		exit(-1);
+	}
+		// no rotation and value of calibration
+    return Calibration6DoF(translation[0], translation[1], translation[2], 0,0,0, 0);
+  }
+
+
+/*
+ * All points around the all found centers:
+ * x x x
+ * x   x
+ * x x x
+ */
+vector<PointXYZ> Calibration3DMarker::generate_possible_centers(
+       const vector<PointXYZ> &spheres_centers, float straight_distance)
+{
+  vector<PointXYZ> possible_centers;
+
+  for (vector<PointXYZ>::const_iterator c = spheres_centers.begin();
+                                        c < spheres_centers.end();
+                                        c++)
+  {
+    for (int dx = -1; dx <= 1; dx++)
+    {
+      for (int dy = -1; dy <= 1; dy++)
+      {
+        if (dx || dy)
+        { // omitting found center (may be false detection)
+          PointXYZ new_center = *c;
+          new_center.x += dx * straight_distance;
+          new_center.y += dy * straight_distance;
+          possible_centers.push_back(new_center);
+        }
+      }
+    }
+  }
+
+  return possible_centers;
+}
+
+
+void Calibration3DMarker::generate_possible_points(
+        PointCloud<PointXYZ> &plane, PointCloud<PointXYZ>::Ptr detection_cloud,
+        const vector<PointXYZ> &possible_centers, float radius, float tolerance)
+{
+
+  detection_cloud->clear();
+  for (PointCloud<PointXYZ>::iterator pt=plane.begin(); pt < plane.end(); pt++)
+  {
+    int votes = 0;
+    for (vector<PointXYZ>::const_iterator center = possible_centers.begin();
+                                          center < possible_centers.end();
+                                          center++)
+    {
+      if (euclid_dist(*pt, *center) < radius + tolerance)
+      {
+        votes++;
+      }
+    }
+    if (votes > 0)
+    {
+      detection_cloud->push_back(*pt);
+    }
+  }
+}
+
+
+vector<PointXYZ> Calibration3DMarker::refine4centers(vector<PointXYZ> centers,
+                                     PointCloud<PointXYZ>::Ptr detection_cloud)
+{
+/*
+  float z_coord = 0;
+  for (PointCloud<PointXYZ>::iterator pt = detection_cloud->begin();
+                                      pt < detection_cloud->end();
+                                      pt++)
+  {
+    z_coord += pt->x;
+  }
+  z_coord /= detection_cloud->size();
+
+
+  for (vector<PointXYZ>::iterator c = centers.begin(); c < centers.end(); c++)
+  {
+    c->x = z_coord;
+  }
+*/
+
+  return centers;
+}
+
+  /*
+   * All points around the all found centers:
+   * x x x
+   * x   x
+   * x x x
+   */
+  
+  std::vector< ::pcl::PointXYZ > generate_possible_centers(
+                        const std::vector< ::pcl::PointXYZ > &spheres_centers,
+                        float straight_distance);
+
+  void generate_possible_points(::pcl::PointCloud< ::pcl::PointXYZ > &plane,
+                  ::pcl::PointCloud< ::pcl::PointXYZ >::Ptr detection_cloud,
+              const std::vector< ::pcl::PointXYZ > &possible_centers, 
+                                                        float radius,
+                                                        float tolerance);
+
+  std::vector< ::pcl::PointXYZ > refine4centers(
+  std::vector< ::pcl::PointXYZ > centers,
+  pcl::PointCloud< ::pcl::PointXYZ >::Ptr detection_cloud);
+
+// detect 4 sphere is ponitcloud //
+vector<PointXYZ> Calibration3DMarker::detect4spheres(
+               PointCloud<PointXYZ>::Ptr plane, vector<float> &radiuses)
+{
+	
+  radiuses.clear();
+  vector<PointXYZ> centers;
+  std::vector<int> inliers_indicies;
+ 
+
+  float tolerance = 0.04;
+ 
+  for (int i = 0; i < 4; i++)
+  {
+    SampleConsensusModelSphere<PointXYZ>::Ptr model_s(
+        new SampleConsensusModelSphere<PointXYZ>(plane));
+	
+    model_s->setRadiusLimits(0.08, 0.085);
+
+    RandomSampleConsensus<PointXYZ> ransac_sphere(model_s);
+    
+	ransac_sphere.setDistanceThreshold(tolerance);
+    
+	ransac_sphere.computeModel();
+    
+	inliers_indicies.clear();
+    
+	ransac_sphere.getInliers(inliers_indicies);
+
+    if (inliers_indicies.size() == 0)
+    {
+      continue;
+    }
+    Eigen::VectorXf coeficients;
+    ransac_sphere.getModelCoefficients(coeficients);
+	
+//	std::cout << i + 1 << ". circle: " << coeficients << endl << endl;
+
+    PointCloud<PointXYZ>::Ptr outliers(new PointCloud<PointXYZ>);
+    PointCloud<PointXYZ>::Ptr inliers(new PointCloud<PointXYZ>);
+
+	remove_inliers<PointXYZ>(*plane, inliers_indicies, *outliers);
+    copyPointCloud<PointXYZ>(*plane, inliers_indicies, *inliers);
+    plane = outliers;
+  
+//	Velodyne::Velodyne::view(plane);
+
+	four_spheres += *inliers;
+    PointXYZ middle(coeficients(0), coeficients(1), coeficients(2));
+    four_spheres.push_back(middle);
+    centers.push_back(middle);
+
+    float radius = coeficients(3);
+    radiuses.push_back(radius);
+
+  }
+//  PointCloud<PointXYZ>::Ptr four_spheres_ptr(four_spheres);
+  return centers;
+}
+
+// use solvePnP 
+void coarseCalibration(std::vector<Point3f>& cloudPoints, vector<Point2f> imgPoints,
+					   cv::Mat camMat, cv::Mat distCoeffs)
+{
+	cv::Mat cam_mat;
+	cv::Mat dis_cof;
+	double p[9] = { 671.135, 0.0, 661.915,
+		            	0.0, 671.135, 357.206,
+						0.0, 0.0, 1.0 };
+
+  cv::Mat(3, 3, CV_32FC1, &p).copyTo(cam_mat);
+  double q[4] = { -0.170522, 0.0248182, 0.0, 0.0 };
+  cv::Mat(4, 1, CV_32FC1, &q).copyTo(dis_cof);
+
+//  dis_cof = 
+
+	coarseCalibration(centers3D, centers2D, cam_mat, dis_cof);
+
+	std::cout << cloudPoints.size() << std::endl;
+	std::cout << imgPoints.size() << std::endl;
+//	std::cout << camMat;
+	cv::Mat rvec, tvec;
+	double t[3] = {0.0409554, -0.134192, -0.0363713};
+	cv::Mat(3, 1, CV_8UC1, &t).copyTo( tvec );
+    cv::solvePnP( cloudPoints, imgPoints, camMat, distCoeffs, rvec, tvec, true);
+	cv::Mat R;
+	cv::Rodrigues(rvec, R);
+    cv::Mat T(3, 4, R.type()); // T is 4x4
+    T( cv::Range(0, 3), cv::Range(0,3) ) = R * 1; // copies R into T
+    T( cv::Range(0, 3), cv::Range(3,4) ) = tvec * 1; // copies tvec into T
+
+	cout<<"R: "<< std::endl << R << endl;
+    cout<<"t: "<< tvec << endl;
+ }
+
+
+case Processing::INTENSITY_EDGES:
+{
+	new_intensity = 20 * std::max( abs(last_intensity-(*pt)->intensity),
+								   abs(succ->intensity-(*pt)->intensity);
+	last_intensity = (*pt)->intensity;
+	(*pt)->intensity = new_intensity;
+}
+
+
+  Mat plane_gray;
+  cv::normalize(plane, plane_gray, 0, 255, NORM_MINMAX, CV_8UC1);
+
+  dilate(plane_gray, plane_gray, Mat());
+	
+  //Image::Image plane_img(plane_gray);
+  //return plane_img.computeIDTEdgeImage();
+
+  return plane_gray;
+
+/
+typedef struct
+{
+  cv::Mat frame_rgb;
+  cv::Mat frame_gray;
+  cv::Mat P;
+  pcl::PointCloud<Velodyne::Point> pc;
+  std::string error;
+  float x, y, z, rot_x, rot_y, rot_z;
+} CalibrationInputs;
+
+
+
+  static CalibrationInputs loadArgumets(int argc, char *argv[], bool DoF = false)
+  {
+    CalibrationInputs inputs;
+    int expected_arguments = DoF ? 10 : 4;
+
+    if (argc == expected_arguments)
+    {
+      inputs.frame_rgb = cv::imread(argv[1]);
+      inputs.frame_gray = cv::imread(argv[1]);
+      inputs.error = inputs.frame_rgb.data ? "" : "image not read";
+
+      cv::FileStorage fs_P(argv[2], cv::FileStorage::READ);
+      fs_P["P"] >> inputs.P;
+      inputs.error = inputs.P.data ? "" : "projection matrix not read";
+      fs_P.release();
+
+      ::pcl::io::loadPCDFile(argv[3], inputs.pc);
+      inputs.error = !inputs.pc.empty() ? "" : "velodyne points not read";
+
+      if (DoF)
+      {
+        inputs.x = atof(argv[4]);
+        inputs.y = atof(argv[5]);
+        inputs.z = atof(argv[6]);
+        inputs.rot_x = atof(argv[7]);
+        inputs.rot_y = atof(argv[8]);
+        inputs.rot_z = atof(argv[9]);
+      }
+    }
+    else
+    {
+      inputs.error = "wrong number of arguments";
+    }
+
+    if (!inputs.error.empty())
+    {
+      perror(inputs.error.c_str());
+      std::cerr << argv[0] << " <frame> <projection-matrix> <point-cloud>"
+                << (DoF ? " <x> <y> <z> <rot-x> <rot-y> <rot-z>\n" : "\n");
+      exit(1);
+    }
+    return inputs;
+  }
+
+void project(pcl::PointCloud<Velodyne::Point>& inPC,
+			 Mat projection_matrix, cv::Rect frame,
+		     pcl::PointCloud<Velodyne::Point> &visible_points)
+{
+//	cv::Mat plane = cv::Mat::zeros(frame.size(), CV_32FC1);
+  	cv::Mat pt_3D(3, 1, CV_32FC1);
+	cv::Mat pt_2D;
+	visible_points.clear();
+	for (pcl::PointCloud<Velodyne::Point>::iterator pt = inPC.begin();
+                                   pt < inPC.end(); pt++)
+	{
+		// behind the camera
+		if (pt->z < 0)
+          continue; 
+		//float intensity = pt->intensity;
+		//cv::Point2f xy = projectf(*pt, projection_matrix);
+		pt_3D.at<float>(0) = pt->x;
+		pt_3D.at<float>(1) = pt->y;
+		pt_3D.at<float>(2) = pt->z;
+
+		pt_2D = projection_matrix * pt_3D;
+
+		cv::Point xy( pt_2D.at<float>(0) / pt_2D.at<float>(2),
+			      	  pt_2D.at<float>(1) / pt_2D.at<float>(2) );
+
+		if (xy.inside(frame))
+		{
+			visible_points.push_back(*pt);
+//		    cv::circle(plane, xy, 3, intensity, -1);
+//			plane.at<float>(xy) = 255;
+		}
+	}
+//	cv::imwrite("VproIMG.png", plane);
+}
+
+
+// all intensities to range min-max
+void normalizeIntensity(pcl::PointCloud<Velodyne::Point>& inPC, float min, float max)
+{
+	float min_found = INFINITY;
+	float max_found = -INFINITY;
+
+	for (PointCloud<Velodyne::Point>::iterator pt = inPC.begin();
+                                   pt < inPC.end(); pt++)
+	{
+		max_found = std::max(max_found, pt->intensity);
+		min_found = std::min(min_found, pt->intensity);
+	}
+
+	for (PointCloud<Velodyne::Point>::iterator pt = inPC.begin();
+                                   pt < inPC.end(); pt++)
+	{
+		pt->intensity = 
+			(pt->intensity - min_found)/(max_found - min_found) * (max - min) + min;
+	}
+}
+
+
+void threshold( pcl::PointCloud<Velodyne::Point>& inPC,
+		        float thresh, pcl::PointCloud<Velodyne::Point>& outPC )
+{
+	outPC.clear();
+	for (pcl::PointCloud<Velodyne::Point>::iterator pt = inPC.begin();
+                                   pt < inPC.end(); pt++)
+	{
+		if (pt->intensity > thresh)
+		{
+			outPC.push_back(*pt);
+		}
+	}
+}
+
+
+

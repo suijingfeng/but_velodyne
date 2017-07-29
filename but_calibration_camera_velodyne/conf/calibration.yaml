@@ -1,0 +1,7 @@
+but_calibration_camera_velodyne:
+  camera_frame_topic: /zed/left/image_raw_color
+  camera_info_topic: /zed/left/camera_info
+  marker: {circles_distance: 0.23, circles_radius: 0.0825,
+      EDGE_THRESHOLD: 0.1}
+  velodyne_topic: /velodyne_points
+
