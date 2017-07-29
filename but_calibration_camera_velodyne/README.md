@@ -4,8 +4,9 @@ but_calibration_camera_velodyne
 ROS packages for extrinsic calibration Velodyne 3D LIDARs(vlp16) with ZED stereo camera.
 The package follows the methods proposed by:
 
-[1] *Velas, Spanel, Materna, Herout: Calibration of RGB Camera with Velodyne LiDAR*
-[2] Jingfeng Sui, Shuo Wang, Extrinsic Calibration of Camera and 3D Laser Sensor System. 
+* [1] *Velas, Spanel, Materna, Herout: Calibration of RGB Camera with Velodyne LiDAR*
+
+* [2] Jingfeng Sui, Shuo Wang, Extrinsic Calibration of Camera and 3D Laser Sensor System. 
 
 Requirements
 ------------
