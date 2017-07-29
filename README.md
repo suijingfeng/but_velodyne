@@ -63,10 +63,18 @@ Original Images:
 ------------------
 
 ![](https://github.com/suijingfeng/but_velodyne/blob/master/but_calibration_camera_velodyne/doc/cccOri/fig/ImgEdge.JPG)
+
+
+After inverse distanse transform:
+------------------
+
 ![](https://github.com/suijingfeng/but_velodyne/blob/master/but_calibration_camera_velodyne/doc/cccOri/fig/IDTE2.JPG)
+
+Circles detected on the edges image:
+----------------
 ![](https://github.com/suijingfeng/but_velodyne/blob/master/but_calibration_camera_velodyne/doc/cccOri/fig/HoughCircle.jpg)
 
-Original Pointcloud:
+Original Pointcloud(front view and top view):
 ------------------
 ![](https://github.com/suijingfeng/but_velodyne/blob/master/but_calibration_camera_velodyne/doc/cccOri/fig/frontview.jpg)
 ![](https://github.com/suijingfeng/but_velodyne/blob/master/but_calibration_camera_velodyne/doc/cccOri/fig/top_view.jpg)
