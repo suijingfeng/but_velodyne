@@ -6,7 +6,8 @@ The package follows the methods proposed by:
 
 * [1] *Velas, Spanel, Materna, Herout: Calibration of RGB Camera with Velodyne LiDAR*
 
-* [2] Jingfeng Sui, Shuo Wang, Extrinsic Calibration of Camera and 3D Laser Sensor System. 
+* [2] Jingfeng Sui, Shuo Wang, Extrinsic Calibration of Camera and 3D Laser Sensor System. [pdf](https://github.com/suijingfeng/but_velodyne/blob/master/but_calibration_camera_velodyne/doc/cccOri/Extrinsic%20Calibration%20of%20RGB%20Camera%20With%20Velodyne%20LiDAR.pdf) 
+
 
 Requirements
 ------------
